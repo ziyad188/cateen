@@ -12,7 +12,17 @@ app.set('view engine', 'ejs');
 //database
 mongoose.connect("mongodb+srv://ziyad:ziyad@cluster0.qzthgrr.mongodb.net/?retryWrites=true&w=majority/studentsDB",{useNewUrlParser: true});
 //routes
+app.get("/students/:id", function(req,res){
+    console.log(req.params['id']);
+    Student.findOne({id: req.params['id']}, function(err, foundList){
+        if(!err){
+            console.log(foundList);
+        }else{
+            console.log(err);
+        }
+    });
 
+});
 app.get("/", function(req,res){
     res.render("index");
     const studentSchema = {
