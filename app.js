@@ -41,15 +41,15 @@ app.get("/students/:id", function(req,res){
                     res.send("authenticated");
                     breakfast=1;
 
-                }else if((hour>11 && hour<15) && lunch == 0){
+                }else if((hour>9 && hour<15) && lunch == 0){
                     res.send("authenticated");
                     lunch=1;
 
-                }else if((hour>15 && hour<17) && snacks == 0){
+                }else if((hour>15 && hour<19) && snacks == 0){
                     res.send("authenticated");
                     snacks = 1;
 
-                }else if ((hour>19 && hour<21) && dinnner ==0){
+                }else if ((hour>19 && hour<6) && dinnner ==0){
                     res.send("authenticated");
                     dinnner = 1;
 
