@@ -54,7 +54,7 @@ app.get("/students/:id", function(req,res){
                     dinnner = 1;
 
                 }else{
-                    res.render("auth",{text:"you already purchased"});
+                    res.render("auth",{text:"You already purchased your food"});
                 }
                 
             }else{
@@ -66,7 +66,7 @@ app.get("/students/:id", function(req,res){
                         }
                     });
                 }else{
-                    res.render("auth",{text:"please recharge your nfc tag"});
+                    res.render("auth",{text:"Please recharge your wallet"});
                 }
             }
         }else{
