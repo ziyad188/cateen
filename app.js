@@ -65,6 +65,6 @@ app.get("/", function(req,res){
 
 
 //listen
-app.listen(3000 || process.env.PORT, function(req,res){
+app.listen(process.env.PORT, function(req,res){
     console.log("server spin up in port 3000");
 })
