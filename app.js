@@ -22,7 +22,31 @@ const studentSchema = {
   };
   
   const Student = mongoose.model("Student", studentSchema);
+//meal const
+var breakfast;
+var lunch;
+var snacks;
+var dinnner;
 
+function scheduleReset() {
+    // get current time
+    let reset = new Date();
+    // update the Hours, mins, secs to the 24th hour (which is when the next day starts)
+    reset.setHours(24, 0, 0, 0);
+    // calc amount of time until restart
+    let t = reset.getTime() - Date.now();
+    setTimeout(function() {
+        // reset variable
+        breakfast = 0;
+        lunch =0;
+        snacks=0;
+        dinnner=0;
+                // schedule the next variable reset
+        scheduleReset();
+    }, t);
+}
+
+scheduleReset();
 app.get("/students/:id", function(req,res){
     console.log(req.params['id']);
     var idreq = req.params['id']; 
@@ -31,7 +55,29 @@ app.get("/students/:id", function(req,res){
         if(!err){
             console.log(foundList);
             if(foundList.batch === "host"){
-                res.send("authenticated");
+                
+                var datetime = new Date();
+                var hour = datetime.getHours();
+                if((hour>6 && hour<9) && breakfast!=1){
+                    res.send("authenticated");
+                    breakfast=1;
+
+                }else if((hour>11 && hour<15) && lunch!=1){
+                    res.send("authenticated");
+                    lunch=1;
+
+                }else if((hour>15 && hour<17) && snacks!=1){
+                    res.send("authenticated");
+                    snacks = 1;
+
+                }else if ((hour>19 && hour<21) && dinnner!=1){
+                    res.send("authenticated");
+                    dinnner = 1;
+
+                }else{
+                    res.send("you already purchased");
+                }
+                
             }else{
                     if(foundList.meals>0){
                     var meal = foundList.meals-1;
@@ -65,6 +111,6 @@ app.get("/", function(req,res){
 
 
 //listen
-app.listen(process.env.PORT, function(req,res){
+app.listen(process.env.PORT || 3000, function(req,res){
     console.log("server spin up in port 3000");
 })
