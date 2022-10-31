@@ -25,26 +25,24 @@ const studentSchema = {
 
 app.get("/students/:id", function(req,res){
     console.log(req.params['id']);
+    var idreq = req.params['id']; 
     Student.findOne({id: req.params['id']}, function(err, foundList){
+        var ide = req.params['id'];
         if(!err){
             console.log(foundList);
             if(foundList.batch === "host"){
                 res.send("authenticated");
             }else{
-                Student.findOne({id: req.params['id']},function(err, found){
-                    if(found.meals>0){
-                    var meal = found.meals-1;
-                    Student.updateOne({meals:meal},function(err,result){
-                        if(!err){
+                    if(foundList.meals>0){
+                    var meal = foundList.meals-1;
+                    Student.findOneAndUpdate({id:ide},{meals:meal},function(err,result){
+                        if(err){
                            res.send("authenticated");
                         }
                     });
                 }else{
                     res.send("please recharge your nfc tag");
                 }
-
-
-                })
             }
         }else{
             console.log(err);
