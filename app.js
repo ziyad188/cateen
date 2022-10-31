@@ -86,7 +86,7 @@ app.get("/students/:id", function(req,res){
                 var year = datetime.getFullYear();
                 var date = day+"/"+month+"/"+year;
                 var hour = datetime.getHours();
-                console.log(hour)
+                console.log(date)
                 if((hour > 6 && hour < 9)){
                     if(breakfast == 1){
                     breakfast=0;
@@ -97,9 +97,9 @@ app.get("/students/:id", function(req,res){
                             id:idreq,
                             name:foundList.name,
                             date:date,
-                                breakfast:"yes",
-                                lunch:"",
-                                dinner:"",
+                            breakfast:"yes",
+                            lunch:"",
+                            dinner:"",
                             amount:135
                         })
                         bill.save(function(err){
@@ -172,6 +172,7 @@ app.get("/students/:id", function(req,res){
                             const bill = new Bill({
                                 id:idreq,
                                 name:foundList.name,
+                                date:date,
                                 breakfast:"",
                                 lunch:"",
                                 dinner:"yes",
