@@ -38,23 +38,23 @@ app.get("/students/:id", function(req,res){
                 var datetime = new Date();
                 var hour = datetime.getHours();
                 if((hour>6 && hour<9) && breakfast == 0){
-                    res.send("authenticated");
+                   res.render("auth",{text:"Authenticated"});
                     breakfast=1;
 
                 }else if((hour>9 && hour<15) && lunch == 0){
-                    res.send("authenticated");
+                    res.render("auth",{text:"Authenticated"});
                     lunch=1;
 
                 }else if((hour>15 && hour<19) && snacks == 0){
-                    res.send("authenticated");
+                    res.render("auth",{text:"Authenticated"});
                     snacks = 1;
 
                 }else if ((hour>19 && hour<6) && dinnner ==0){
-                    res.send("authenticated");
+                    res.render("auth",{text:"Authenticated"});
                     dinnner = 1;
 
                 }else{
-                    res.send("you already purchased");
+                    res.render("auth",{text:"you already purchased"});
                 }
                 
             }else{
@@ -62,11 +62,11 @@ app.get("/students/:id", function(req,res){
                     var meal = foundList.meals-1;
                     Student.findOneAndUpdate({id:ide},{meals:meal},function(err,result){
                         if(err){
-                           res.send("authenticated");
+                           res.render("auth",{text:"Authenticated"});
                         }
                     });
                 }else{
-                    res.send("please recharge your nfc tag");
+                    res.render("auth",{text:"please recharge your nfc tag"});
                 }
             }
         }else{
