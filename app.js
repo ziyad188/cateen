@@ -31,26 +31,25 @@ app.get("/students/:id", function(req,res){
     console.log(req.params['id']);
     var idreq = req.params['id']; 
     Student.findOne({id: req.params['id']}, function(err, foundList){
-        var ide = req.params['id'];
         if(!err){
             console.log(foundList);
             if(foundList.batch === "host"){
                 
                 var datetime = new Date();
                 var hour = datetime.getHours();
-                if((hour>6 && hour<9) && breakfast!=1){
+                if((hour>6 && hour<9) && breakfast == 0){
                     res.send("authenticated");
                     breakfast=1;
 
-                }else if((hour>11 && hour<15) && lunch!=1){
+                }else if((hour>11 && hour<15) && lunch == 0){
                     res.send("authenticated");
                     lunch=1;
 
-                }else if((hour>15 && hour<17) && snacks!=1){
+                }else if((hour>15 && hour<17) && snacks == 0){
                     res.send("authenticated");
                     snacks = 1;
 
-                }else if ((hour>19 && hour<21) && dinnner!=1){
+                }else if ((hour>19 && hour<21) && dinnner ==0){
                     res.send("authenticated");
                     dinnner = 1;
 
