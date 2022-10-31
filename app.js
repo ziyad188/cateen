@@ -23,30 +23,10 @@ const studentSchema = {
   
   const Student = mongoose.model("Student", studentSchema);
 //meal const
-var breakfast;
-var lunch;
-var snacks;
-var dinnner;
-
-function scheduleReset() {
-    // get current time
-    let reset = new Date();
-    // update the Hours, mins, secs to the 24th hour (which is when the next day starts)
-    reset.setHours(24, 0, 0, 0);
-    // calc amount of time until restart
-    let t = reset.getTime() - Date.now();
-    setTimeout(function() {
-        // reset variable
-        breakfast = 0;
-        lunch =0;
-        snacks=0;
-        dinnner=0;
-                // schedule the next variable reset
-        scheduleReset();
-    }, t);
-}
-
-scheduleReset();
+var breakfast =0;
+var lunch=0;
+var snacks=0;
+var dinnner=0;
 app.get("/students/:id", function(req,res){
     console.log(req.params['id']);
     var idreq = req.params['id']; 
