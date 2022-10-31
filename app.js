@@ -29,8 +29,9 @@ var snacks=0;
 var dinnner=0;
 app.get("/students/:id", function(req,res){
     console.log(req.params['id']);
-    var idreq = req.params['id']; 
+     
     Student.findOne({id: req.params['id']}, function(err, foundList){
+        var idreq = req.params['id'];
         if(!err){
             console.log(foundList);
             if(foundList.batch === "host"){
@@ -60,7 +61,7 @@ app.get("/students/:id", function(req,res){
             }else{
                     if(foundList.meals>0){
                     var meal = foundList.meals-1;
-                    Student.findOneAndUpdate({id:ide},{meals:meal},function(err,result){
+                    Student.findOneAndUpdate({id:idreq},{meals:meal},function(err,result){
                         if(err){
                            res.render("auth",{text:"Authenticated"});
                         }
