@@ -34,8 +34,7 @@ const hostlerSchema = {
 const Bill = mongoose.model("Bill",hostlerSchema);
 //orders
 const orderSchema ={
-    id:String,
-    name:String,
+    username:String,
     item: String,
     qty: Number
 }
@@ -224,12 +223,11 @@ app.get("/jj", function(req,res){
 })
 
 app.get("/kitchen", function(req,res){
-     res.render("kitchen",{orders:orders})
-    setTimeout(function(){
-        Order.find({},function(err, orders){
-            res.render("kitchen",{orders:orders})
-        })
-        }, 10000);
+    Order.find({},function(err, orders){
+        console.log(orders)
+        res.render("kitchen",{orders:orders})
+    })
+    
     
     
 
@@ -283,7 +281,7 @@ app.post("/itemadd", function(req,res){
     })
     stock.save(function(err){
         if(!err){
-            res.redirect("/manager")
+            res.redirect("/manager9099091092910912090912")
         }
     });
 })
@@ -299,7 +297,7 @@ app.post("/manager", function(req,res){
         Stock.findByIdAndRemove(req.body.delete, function(err){
             if (!err) {
               console.log("Successfully deleted checked item.");
-              res.redirect("/manager");
+              res.redirect("/manager9099091092910912090912");
             }
           });
     }
@@ -309,10 +307,22 @@ app.post("/edit",function(req,res){
     console.log(req.body);
     Stock.findOneAndUpdate({_id:req.body.edit},{itemId:req.body.id,name:req.body.name,price:req.body.price,stock:req.body.stock},function(err,result){
         if(!err){
-           res.redirect("/manager");
+           res.redirect("/manager9099091092910912090912");
         }
     });
 
+})
+app.get("/billing", function(req,res){
+    res.render("billing");
+})
+app.post("/billing", function(req,res){
+    Bill.find({id:req.body.id}, function(err,result){
+        console.log(result)
+        res.render("billing-1",{orders:result})
+    })
+})
+app.get("/sales", function(req,res){
+res.render("sales");
 })
 //listen
 app.listen(process.env.PORT || 3000, function(req,res){

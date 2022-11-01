@@ -4,6 +4,7 @@
 <head>
     
     <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
     <link rel="stylesheet" href="assets-kitchen/bootstrap/css/bootstrap.min.css">
@@ -40,7 +41,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>NAME</th>
+                    
                     <th>SCMS ID</th>
                     <th>ITEM</th>
                     <th>QUANTITY</th>
@@ -50,8 +51,8 @@
             <tbody>
                 <%  orders.forEach(function(order){ %>
                 <tr>
-                    <td><%=order.name%></td>
-                    <td><%=order.id%></td>
+                   
+                    <td><%=order.username%></td>
                     <td><%=order.item%></td>
                     <td><%=order.qty%>&nbsp; &nbsp;  <input type="checkbox" name="checkbox" value="<%=order._id%>" onChange="this.form.submit()"></td>
                 </tr>
