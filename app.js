@@ -83,7 +83,7 @@ app.get("/students/:id", function(req,res){
                 var day = datetime.getDate();
                 var month = datetime.getMonth();
                 var year = datetime.getFullYear();
-                var date = day+"/"+month+"/"+year;
+                var date = "1"+"/"+month+"/"+year;
                 var hour = datetime.getHours();
                 console.log(date)
                 if((hour > 6 && hour < 9)){
