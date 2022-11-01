@@ -323,6 +323,30 @@ app.post("/billing", function(req,res){
 })
 app.get("/sales", function(req,res){
 res.render("sales");
+});
+//main
+app.get("/", function(req,res){
+    res.render("index");
+});
+app.get("/pricing", function(req,res){
+    res.render("pricing");
+})
+app.get("/review",function(req,res){
+    res.render("feedback");
+});
+app.get("/login", function(req,res){
+    res.render("login");
+});
+app.post("/login", function(req,res){
+    const username= req.body.id;
+    console.log(req.body)
+    Student.findOne({id: username},function(err,result){
+        if(result != null){
+            if(req.body.password === username){
+                res.render("userportal",{name:result.name,type: result.batch,meals: result.meals})
+            }
+        }
+    })
 })
 //listen
 app.listen(process.env.PORT || 3000, function(req,res){

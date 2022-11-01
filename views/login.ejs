@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Home - Brand</title>
+    <title>Features - Brand</title>
     <link
       rel="stylesheet"
       href="/assets-main/bootstrap/css/bootstrap.min.css?h=f5d56c7e12de65353f0fe6a289d94ea3"
@@ -22,13 +22,13 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-light navbar-expand-lg sticky-top bg-white clean-navbar"
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar"
     >
       <div class="container">
         <a
           class="navbar-brand d-flex justify-content-center align-items-center logo"
-          style="font-size: 23px"
           href="/"
+          style="font-size: 23px"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 -32 576 576"
@@ -68,125 +68,95 @@
         </div>
       </div>
     </nav>
-    <div
-      class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5"
-    >
-      <div class="pb-2 pb-lg-1">
-        <h2 class="fw-bold mb-2">TODAYS SPECIAL&nbsp;</h2>
-        <p class="mb-0">PRE-ORDER YOUR MEALS AND GRAB EXICTING DISCOUNTS</p>
-      </div>
-      <div class="my-2">
-        <a
-          class="btn btn-light fs-5 py-2 px-4"
-          role="button"
-          href="/pricing"
-          >ORDER NOW</a
-        >
-      </div>
-    </div>
-    <!-- Start: Stats Color -->
-    <div class="container py-4 py-xl-5">
-      <div
-        class="text-center text-white-50 bg-primary border rounded border-0 p-3"
-      >
-        <div
-          class="row row-cols-2 row-cols-md-4 d-lg-flex justify-content-lg-center align-items-lg-center"
-        >
-          <div class="col">
-            <div class="p-3">
-              <h4 class="display-5 fw-bold text-white mb-0">1:17</h4>
-              <p class="mb-0"><strong>interval time left</strong></p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="p-3">
-              <h4 class="display-5 fw-bold text-white mb-0">45+</h4>
-              <p class="mb-0"><strong>current number of bill queue</strong></p>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="p-3">
-              <h4 class="display-5 fw-bold text-white mb-0">1230+</h4>
-              <p class="mb-0"><strong>Total students served</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End: Stats Color -->
-    <div
-      class="col d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"
-    >
-      <img
-        class="img-fluid d-flex flex-fill"
-        src="/assets-main/img/clg-canteen.jpg?h=3561f2b9e530524e15678e1069512313"
-        width="1391"
-        height="519"
-      />
-    </div>
-    <!-- Start: Testimonials -->
-    <div class="container py-4 py-xl-5">
-      <div class="row mb-5">
-        <div class="col-md-8 col-xl-6 text-center mx-auto">
-          <h2>REVIEWS AND RATING</h2>
-        </div>
-      </div>
-      <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
-        <div class="col">
-          <div>
-            <p class="bg-light border rounded border-0 border-light p-4">
-              WOW!! THE BIRIYANII WAS FABOLOUS
-            </p>
-            <div class="d-flex">
-              <div>
-                <p class="fw-bold text-primary mb-0">ZIYAD</p>
-                <p class="text-muted mb-0">SCMS</p>
-              </div>
+    <main class="page">
+      <section class="clean-block features">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <!-- Start: Login Form Basic -->
+              <section class="position-relative py-4 py-xl-5">
+                <div class="container">
+                  <div class="row mb-5">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                      <h2>Log in</h2>
+                      <p class="w-lg-50"></p>
+                    </div>
+                  </div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 col-xl-4">
+                      <div class="card mb-5">
+                        <div
+                          class="card-body d-flex flex-column align-items-center"
+                        >
+                          <div
+                            class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="1em"
+                              height="1em"
+                              fill="currentColor"
+                              viewBox="0 0 16 16"
+                              class="bi bi-person"
+                            >
+                              <path
+                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                              ></path>
+                            </svg>
+                          </div>
+                          <form class="text-center" method="post" action="/login">
+                            <div class="mb-3">
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="id"
+                                placeholder="SCMS ID"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                class="form-control"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <button
+                                class="btn btn-primary d-block w-100"
+                                type="submit"
+                              >
+                                Login
+                              </button>
+                            </div>
+                            <p class="text-muted">Forgot your password?</p>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- End: Login Form Basic -->
             </div>
           </div>
         </div>
-        <div class="col">
-          <div>
-            <p class="bg-light border rounded border-0 border-light p-4">
-              NEATLY MAINTAINED CANTEEN AND STAFFS ARE FRIENDLY BUT THE MEALS
-              WAS NOT UPTO THE MARKS
-            </p>
-            <div class="d-flex">
-              <div>
-                <p class="fw-bold text-primary mb-0">SOORAJ</p>
-                <p class="text-muted mb-0">SCMS</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div>
-            <p class="bg-light border rounded border-0 border-light p-4">
-              GOOD FOOD !!
-            </p>
-            <div class="d-flex">
-              <div>
-                <p class="fw-bold text-primary mb-0">RANSIF</p>
-                <p class="text-muted mb-0">SCMS</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End: Testimonials --><!-- Start: Footer Dark -->
+      </section>
+    </main>
+    <!-- Start: Footer Dark -->
+    <footer class="page-footer dark"></footer>
+    <!-- End: Footer Dark --><!-- Start: Footer Dark -->
     <footer class="text-center bg-dark">
       <div class="container text-white py-4 py-lg-5">
         <ul class="list-inline">
           <li class="list-inline-item me-4">
-            <a class="link-light" href="/pricing.html">order</a>
+            <a class="link-light" href="/pricing">order</a>
           </li>
           <li class="list-inline-item me-4">
-            <a class="link-light" href="/feedback.html">review</a>
+            <a class="link-light" href="/review">review</a>
           </li>
           <li class="list-inline-item">
-            <a class="link-light" href="/LOGIN.html">userportal</a>
+            <a class="link-light" href="/login">userportal</a>
           </li>
         </ul>
         <ul class="list-inline">
